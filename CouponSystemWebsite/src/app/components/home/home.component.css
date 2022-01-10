@@ -1,0 +1,34 @@
+.homeBackground {
+  background-image: url("/assets/back1.jpg");
+  /*height: 100vh !important;
+  width: 100%;*/
+  position: relative;
+  text-align: left;
+  color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.panel-body {
+  min-height: 100px;
+}
+/* Top right text */
+.top-right {
+  position: absolute;
+  top: 18%;
+  right: 40%;
+  left: 20%;
+  text-shadow: 2px 2px 5px white;
+  font-size: 23px;
+}
+
+.font {
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+p {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+
+

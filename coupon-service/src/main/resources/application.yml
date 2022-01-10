@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: coupon-service
+  cloud:
+    client:
+      hostname: localhost
+    gateway:
+      discovery:
+        locator:
+          lower-case-service-id: true
+          enabled: true
+  jackson:
+    default-property-inclusion: NON_NULL
+  data:
+    mongodb:
+      uri:  mongodb+srv://Atharvakalambe:Kirti%401234@deals.idyre.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+      database: deals
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+
+
+server:
+  port: 8081
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8083/eureka
+  instance:
+    hostname: localhost
+    preferIpAddress: true
+    intance-id: ${spring.cloud.client.hostname}:${spring.application.name}:${server.port}
+
+springdoc:
+  swagger-ui:
+    path: /coupon-service-swagger.html
+  operationsSorter: method
+
+
+jwt.secret: dealsandcouponsecret

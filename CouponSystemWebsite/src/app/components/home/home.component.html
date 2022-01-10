@@ -1,0 +1,93 @@
+<div class="homeBackground">
+  <!--<img src="/assets/back1.jpg" width="100%" height="100%"> -->
+  <div>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">        
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">  
+   <h1 text ="center" class="display-6 p-5 mb-5">Why to pay more, get your exiting deals and coupons!</h1>
+   <div class="row justify-content-center">  
+     <div class="col-12 col-md-10 col-lg-8">  
+         <form class="card card-sm">  
+             <div class="card-body row no-gutters align-items-center">  
+                 <div class="col-auto">  
+                     <i class="fas fa-search h4 text-body"> </i>  
+                 </div>  
+                      <div class="col">  
+                     <input class="form-control form-control-lg form-control-borderless" [(ngModel)]="searchKeyword" id="searchKeyword" name="searchKeyword" type="search" placeholder="Search coupons or deals here...?" />  
+                 </div>  
+                 <div class="col-auto">  
+                     <button class="btn btn-lg btn-success" type="button" (click)="search()"> Search </button>  
+                 </div>  
+                  
+             </div>  
+         </form>  
+     </div>  
+       </div>  
+       <br /><br /><hr />
+
+       <div *ngIf="coupons" class="row m-0">
+        <div class="col-7 order-first">
+          
+            <ul class="">
+              <li class="list-group-item" *ngFor="let cpn of coupons; let i = index">
+                <div class="panel border border-dark rounded">
+                  <div class="row">
+                    <div class="col">
+                      <img [src]="cpn.image" height="200" width="200" class="rounded" />
+                    </div>
+                    <div class="col-md-6 text-center align-self-center">
+                      <h4 class="text-primary">{{cpn.title}}</h4>
+                      <h5 class="text-info">{{cpn.category}}</h5>
+                      <div class="card-header col-md-10 offset-1">
+                        <h6 class="price">{{cpn.price| currency: 'INR'}}</h6>
+                      </div>
+                      <p> Expires On: {{cpn.endDate}}</p>
+      
+                    </div>
+                    <div class="col-md-3 align-self-center">
+                      <button class="btn btn-primary" (click)="purchaseCoupon(cpn)">Purchase Me</button>
+                      <br><br>
+                      <a href="#List-{{ i }}" class="btn btn-warning" data-toggle="collapse">Description</a>
+                    </div>
+                  </div>
+      
+                </div>
+                <br>
+                <div id="List-{{ i }}" class="collapse">
+                  Description: {{cpn.description}}
+                </div>
+                <br>
+              </li>
+            </ul>
+          
+        </div>
+        <div class="col-3">
+          <ul *ngIf="couponsByCategory && couponsByCategory.length > 0">
+            <li class="list-group-item">
+              We brings everything you love about the pioneering money-saving platform to the world of promo codes
+            </li>
+          </ul>
+        </div>
+        <div class="col-2 order-last">
+          <div class="card" *ngIf="coupon">
+            <img [src]="coupon.image" height="200px">
+            <h2>{{coupon.title}}</h2>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="card-header">
+                  <h6 class="price">{{coupon.price}}$</h6>
+                </div>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+      </div>
+
+    
+    <div>
+
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+  
+</div>

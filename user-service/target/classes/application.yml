@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: user-service
+  data:
+    mongodb:
+      uri: mongodb+srv://Atharvakalambe:Kirti%401234@deals.idyre.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+      database: deals
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+server:
+  port: 8082
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8083/eureka
+  instance:
+    prefer-ip-address: true
+
+springdoc:
+  swagger-ui:
+    path: /user-service-swagger.html
+  operationsSorter: method
+
+jwt.secret: dealsandcouponsecret
+
+logging:
+  level:
+    reactor:
+      netty: INFO
+    org:
+      springframework:
+        cloud:
+          gateway: TRACE

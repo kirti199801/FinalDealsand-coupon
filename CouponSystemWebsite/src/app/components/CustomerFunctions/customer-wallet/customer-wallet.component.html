@@ -1,0 +1,28 @@
+<br><br>
+<h1>Customer Wallet</h1>
+<br><br>
+<div *ngIf="this.wallet?.id?.length <=0; else walletblock">
+<p>
+    It seems you do not have wallet created. Create wallet and enjoy benefit of INR 1000
+
+    <br /><br />
+    <button class="btn btn-primary" (click)="createWallet()" >Create Wallet</button>
+</p>
+</div>
+<ng-template #walletblock> 
+    <table class="table table-striped">
+        <thead>
+            <tr class="d-flex mr-sm-2">
+                <th class="col-3">Wallet Id</th>
+                <th class="col-3">Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="d-flex mr-sm-2">
+                <td class="col-3">{{wallet.id}}</td>
+                <td class="col-3">{{wallet.currentBalance}}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+</ng-template>

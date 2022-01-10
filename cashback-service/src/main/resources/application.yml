@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: cashback-service
+  data:
+    mongodb:
+      uri: mongodb+srv://Atharvakalambe:Kirti%401234@deals.idyre.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+      database: deals
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+server:
+  port: 8087
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8083/eureka
+  instance:
+    prefer-ip-address: true
+
+springdoc:
+  swagger-ui:
+    path: /cashback-service-swagger.html
+  operationsSorter: method
+
+jwt.secret: dealsandcouponsecret
